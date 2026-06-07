@@ -180,7 +180,7 @@ body.admin-mode .admin-actions{display:flex}
 /* ── LYRICS PANEL ── */
 .lyrics-panel{border-top:1px solid var(--border);padding-top:18px;flex:1;display:flex;flex-direction:column;gap:0}
 .lyrics-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.lyrics-label{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--tm)}
+.lyrics-label{font-size:10px;font-style:italic;letter-spacing:.06em;color:var(--ts);opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:60%}
 .karaoke-toggle{font-size:9px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ac);background:var(--acd);border:1px solid rgba(168,85,247,.25);
   border-radius:3px;padding:3px 10px;cursor:pointer;transition:background .2s}
@@ -731,7 +731,6 @@ function buildCard(song,idx){
         <div>
           <div class="card-artist">${song.artist}</div>
           <div class="card-title">${song.title}</div>
-          ${song.snippet?`<div class="card-snippet">\u00ab${song.snippet}\u00bb</div>`:''}
         </div>
         <div class="live-dot"></div>
       </div>
@@ -749,7 +748,7 @@ function buildCard(song,idx){
       </div>
       <div class="lyrics-panel">
         <div class="lyrics-top">
-          <div class="lyrics-label">тексты · lyrics sync</div>
+          <div class="lyrics-label">${song.snippet||'тексты · lyrics sync'}</div>
           <button class="karaoke-toggle" title="Karaoke mode">🎤 Karaoke</button>
         </div>
         <div class="lyrics-scroll-box">${lyricHTML}</div>
